@@ -5,19 +5,35 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* -----------------------------------------------------------
-     HERO — swap bg image on mobile
-     Desktop: reads original src
-     Mobile:  header-bbl@2x.png (hardcoded for BBL)
+     Universal IMG swap — any element with data-mobile-src attribute
+     Desktop: uses src
+     Mobile (≤1024px): swaps to data-mobile-src
      ----------------------------------------------------------- */
-  (function heroBgSwap() {
-    var bg = document.querySelector('.sx-hero__bg');
-    if (!bg) return;
-    var DESKTOP_SRC = bg.getAttribute('src');
-    var MOBILE_SRC  = 'https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/header-bbl@2x.png';
+  (function imgSwap() {
+    var HERO_MOBILE = 'https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/header-bbl@2x.png';
+
+    // Hero bg
+    var heroBg = document.querySelector('.sx-hero__bg');
+    if (heroBg && !heroBg.getAttribute('data-mobile-src')) {
+      heroBg.setAttribute('data-mobile-src', HERO_MOBILE);
+    }
+
+    // All imgs with data-mobile-src
+    var imgs = document.querySelectorAll('img[data-mobile-src]');
+    imgs.forEach(function (img) {
+      if (!img.getAttribute('data-desktop-src')) {
+        img.setAttribute('data-desktop-src', img.getAttribute('src'));
+      }
+    });
+
     function apply() {
       var isMobile = window.matchMedia('(max-width: 1024px)').matches;
-      var target = isMobile ? MOBILE_SRC : DESKTOP_SRC;
-      if (bg.getAttribute('src') !== target) bg.setAttribute('src', target);
+      document.querySelectorAll('img[data-mobile-src]').forEach(function (img) {
+        var desktop = img.getAttribute('data-desktop-src');
+        var mobile = img.getAttribute('data-mobile-src');
+        var target = isMobile ? mobile : desktop;
+        if (img.getAttribute('src') !== target) img.setAttribute('src', target);
+      });
     }
     apply();
     window.addEventListener('resize', apply);
