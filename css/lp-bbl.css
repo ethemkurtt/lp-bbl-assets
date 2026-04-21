@@ -843,7 +843,155 @@
 
 
 /* =============================================================
-   10. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
+   10. FOOTER (1:1 ported from scarlet)
+   ============================================================= */
+
+.sx-footer {
+  width: 100%;
+  margin: 0 !important;
+  padding: 96px 100px 0;
+  background: #003366;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.sx-footer__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.sx-footer__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.sx-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.sx-footer__logo {
+  width: 175.29px;
+  padding: 2.53px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.53px;
+}
+.sx-footer__logo-img {
+  width: 175.29px;
+  height: 34.36px;
+  object-fit: contain;
+}
+.sx-footer__logo-sub {
+  color: #FEFEFE;
+  font-size: 11.56px;
+  font-weight: 400;
+}
+.sx-footer__mission {
+  width: 654px;
+  max-width: 100%;
+  opacity: 0.8;
+  color: #FEFEFE;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+}
+.sx-footer__contact-title {
+  color: #FEFEFE;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  margin: 0;
+}
+.sx-footer__contact-desc {
+  color: #FEFEFE;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+.sx-footer__contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.sx-footer__contact-item {
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.sx-footer__contact-item--divider {
+  border-right: 1px solid #F98755;
+}
+.sx-footer__contact-item a {
+  color: #FEFEFE;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.sx-footer__contact-item--mail a { text-decoration: underline; }
+.sx-footer__contact-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.sx-footer__contact-icon img { width: 15px; height: 15px; object-fit: contain; }
+.sx-footer__image {
+  width: 429px;
+  height: 429px;
+  border-radius: 11.22px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.sx-footer__image iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.sx-footer__divider {
+  width: calc(100% - 32px);
+  height: 1px;
+  background: #004891;
+}
+.sx-footer__bottom {
+  width: 100%;
+  padding: 0 32px 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.sx-footer__copy {
+  flex: 1;
+  color: #FEFEFE;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.sx-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.sx-footer__social a {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+}
+.sx-footer__social img { width: 24px; height: 24px; object-fit: contain; }
+
+
+/* =============================================================
+   11. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
    ============================================================= */
 
 .elementor img { height: 100% !important; }
@@ -1332,4 +1480,74 @@
   .sx-faq__question { font-size: 16px; line-height: 24px; }
   .sx-faq__content { font-size: 14px; line-height: 22px; }
   .sx-faq__content .sx-cta { width: 100%; max-width: 382px; }
+
+  /* --- FOOTER (mobile) --- */
+  .sx-footer {
+    padding: 48px 20px 0;
+    margin-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  /* Flatten so we can reorder: logo, mission, contact title, desc, items, social, map */
+  .sx-footer__row,
+  .sx-footer__left,
+  .sx-footer__bottom { display: contents !important; }
+
+  .sx-footer__brand { order: 0; display: flex; flex-direction: column; gap: 16px; }
+  .sx-footer__logo { order: 0; }
+  .sx-footer__mission { width: 100% !important; max-width: 100% !important; }
+  .sx-footer__left > div:not(.sx-footer__brand) { order: 1; display: flex; flex-direction: column; gap: 12px; }
+
+  /* Contact items stacked vertically on mobile, centered */
+  .sx-footer__contact-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .sx-footer__contact-item {
+    padding: 12px 0 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+  .sx-footer__contact-item--divider {
+    border-right: none !important;
+    border-bottom: 1px solid #F98755 !important;
+    padding-bottom: 12px !important;
+  }
+
+  /* Social moved between contact and map — CENTERED */
+  .sx-footer__social {
+    order: 2;
+    justify-content: center !important;
+    gap: 20px;
+    padding: 12px 0;
+    width: 100%;
+  }
+
+  /* Map image */
+  .sx-footer__image {
+    order: 3;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 360px !important;
+    aspect-ratio: auto;
+    padding-bottom: 30px;
+  }
+
+  /* Hide copy + divider on mobile (not in design) */
+  .sx-footer__divider { display: none !important; }
+  .sx-footer__bottom {
+    order: 4;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0;
+    gap: 16px;
+  }
+  .sx-footer__copy { display: none; }
 }
