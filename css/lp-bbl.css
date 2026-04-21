@@ -430,6 +430,7 @@
 .sx-benefits__grid {
   width: 100%;
   max-width: 1280px;
+  max-height: 568px;
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -476,7 +477,7 @@
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  color: #2E3033;
+  color: #003366;
 }
 .sx-benefits__image {
   width: 519px;
