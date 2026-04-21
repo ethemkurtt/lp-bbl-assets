@@ -343,16 +343,10 @@
     pointer-events: none;
     z-index: 5 !important;
   }
-  /* Bg img — JS swaps src for mobile */
-  .sx .sx-hero__bg {
-    display: block !important;
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: top center !important;
-    z-index: 0 !important;
+  /* Hide original bg img, use CSS background with mobile-specific image */
+  .sx .sx-hero__bg { display: none !important; }
+  .sx .sx-hero {
+    background: #003366 url('https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/header-bbl@2x.png') no-repeat top center / cover !important;
   }
 
   .sx-hero__content {
