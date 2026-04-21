@@ -120,3 +120,373 @@
   .sx-header__logo-img { width: 140px; height: auto; }
   .sx-header__cta { display: none !important; }
 }
+
+
+/* =============================================================
+   3. HERO (1:1 ported from scarlet — desktop)
+   ============================================================= */
+
+.sx-hero {
+  width: 100%;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  background: #003366;
+}
+.sx-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sx-hero__content {
+  position: absolute;
+  left: 35px;
+  top: 150px;
+  width: 828px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sx-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+.sx-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px 4px 4px;
+  background: rgba(241, 248, 254, 0.10);
+  border-radius: 16px;
+  align-self: flex-start;
+}
+.sx-hero__badge-pill {
+  padding: 2px 10px;
+  background: #EFF3F8;
+  border: 1px solid #BFDFFF;
+  border-radius: 16px;
+  color: #003366;
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.sx-hero__badge-text {
+  color: #FEFEFE;
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.sx-hero__title {
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+  margin: 0;
+}
+.sx-hero__title--dark { color: #003366; }
+.sx-hero__title--light { color: #FEFEFE; }
+
+.sx-hero__subtitle {
+  color: #FEFEFE;
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  opacity: 0.9;
+  margin: 0;
+  max-width: 707px;
+}
+
+.sx-hero__features {
+  width: 707px;
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+.sx-hero__feature {
+  flex: 1;
+  min-height: 100px;
+  padding: 16px;
+  background: rgba(254, 254, 254, 0.10);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #FEFEFE;
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+.sx-hero__feature-icon {
+  width: 24px;
+  height: 24px;
+  background: #F1F8FE;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sx-hero__feature-icon img { width: 24px; height: 24px; }
+
+/* Hero logos row */
+.sx-hero__logos {
+  width: 426px;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile-only features block (hidden on desktop) */
+.sx-mfeatures { display: none; }
+
+
+/* =============================================================
+   4. PRIMARY CTA (.sx-cta) — used in hero + other sections
+   ============================================================= */
+
+.sx-cta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  padding: 12px 20px;
+  background: #F98755;
+  border: none;
+  border-radius: 12px;
+  color: #FEFEFE;
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.sx-cta:hover {
+  background: #003366;
+  color: #FEFEFE;
+}
+.sx-cta--hero {
+  width: 372px;
+  max-width: 100%;
+}
+
+
+/* =============================================================
+   5. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
+   ============================================================= */
+
+.elementor img { height: 100% !important; }
+
+
+/* =============================================================
+   6. HERO + MFEATURES — MOBILE (≤1024px)
+   ============================================================= */
+
+@media (max-width: 1024px) {
+  .elementor img { height: 100% !important; }
+
+  /* Hero container */
+  .sx .sx-hero {
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    background: #003366;
+    position: relative;
+    overflow: visible;
+  }
+  /* Bottom fade-to-white overlay */
+  .sx section.sx-hero::after {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 160px !important;
+    background: linear-gradient(180deg, rgba(254, 254, 254, 0) 0%, rgba(254, 254, 254, 0.996078) 100%) !important;
+    pointer-events: none;
+    z-index: 5 !important;
+  }
+  /* Bg img — JS swaps src for mobile */
+  .sx .sx-hero__bg {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    z-index: 0 !important;
+  }
+
+  .sx-hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 100px 24px 0;
+    top: auto; left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  /* Flatten inner so flex order affects children directly */
+  .sx-hero__inner { display: contents; }
+  .sx-hero__badge { display: none; }
+
+  .sx-hero__title {
+    order: 1;
+    font-size: 24px !important;
+    line-height: 38px !important;
+    text-align: center;
+    position: relative;
+  }
+  .sx-hero__title--dark { color: #003366; }
+  .sx-hero__title--light { color: #FEFEFE; }
+
+  /* Original subtitle hidden, scarlet-style injected after title */
+  .sx-hero__subtitle { display: none !important; max-width: 100% !important; width: 100% !important; }
+  .sx-hero__title::after {
+    content: "Scarlet X altın iğne ile daha pürüzsüz ve genç bir cilt.";
+    display: block;
+    margin-top: 12px;
+    color: #FEFEFE;
+    font-family: 'Sofia Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  .sx-cta--hero {
+    order: 2;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 0;
+  }
+
+  .sx-hero__logos {
+    order: 3;
+    width: 100% !important;
+    max-width: 360px;
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .sx-hero__logos img {
+    height: 28px !important;
+    width: auto !important;
+    object-fit: contain;
+  }
+
+  /* Original dark feature row hidden on mobile */
+  .sx-hero__features {
+    display: none !important;
+  }
+  .sx-hero__feature {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    background: #FEFEFE;
+    border: 1px solid #EFEFEF;
+    box-shadow: 0 2px 4px 2px rgba(10, 13, 18, 0.1);
+    border-radius: 12px;
+    color: #2E3033;
+    font-family: 'Sofia Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+  }
+  .sx-hero__feature::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  .sx-hero__feature-icon {
+    width: 24px;
+    height: 24px;
+    background: #F1F8FE;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .sx-hero__feature-icon img {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* WHITE FEATURE CARD LIST (.sx-mfeatures) — below hero */
+  .sx-mfeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    background: #FEFEFE;
+    box-sizing: border-box;
+  }
+  .sx-mfeatures__card {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    background: #FEFEFE;
+    border: 1px solid #EFEFEF;
+    box-shadow: 0 2px 4px 2px rgba(10, 13, 18, 0.1);
+    border-radius: 12px;
+    color: #2E3033;
+    font-family: 'Sofia Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+  }
+  .sx-mfeatures__card::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  .sx-mfeatures__icon {
+    width: 24px;
+    height: 24px;
+    background: #F1F8FE;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sx-mfeatures__icon img { width: 14px; height: 14px; }
+}
