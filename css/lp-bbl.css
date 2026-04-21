@@ -45,6 +45,14 @@
   font-display: swap;
 }
 
+/* Apply Sofia Pro to the whole .sx wrapper and everything inside */
+.sx,
+.sx * {
+  font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 /* =============================================================
    2. HEADER (fixed, 1:1 ported from scarlet)
