@@ -53,6 +53,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide the old Elit Klinik theme header coming from Elementor Theme Builder */
+.ek-header { display: none !important; }
+
 /* Kill Elementor container defaults that wrap .sx */
 .e-con-inner:has(.sx),
 .e-con:has(.sx),
