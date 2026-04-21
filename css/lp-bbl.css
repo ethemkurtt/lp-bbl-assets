@@ -540,23 +540,8 @@
   transform: translate(-50%, -50%);
   width: 64px;
   height: 64px;
-  border-radius: 50%;
-  background: rgba(191, 223, 255, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: url('https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/icon_play-1.svg') center / contain no-repeat;
   pointer-events: none;
-}
-.sx-process__play::before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 16px solid #003366;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  margin-left: 4px;
 }
 .sx-process__content {
   flex: 1;
@@ -1296,11 +1281,6 @@
   .sx-process__play {
     width: 56px;
     height: 56px;
-  }
-  .sx-process__play::before {
-    border-left-width: 14px;
-    border-top-width: 9px;
-    border-bottom-width: 9px;
   }
   .sx-process__content {
     width: 100%;
