@@ -11,11 +11,21 @@ document.addEventListener('DOMContentLoaded', function () {
      ----------------------------------------------------------- */
   (function imgSwap() {
     var HERO_MOBILE = 'https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/header-bbl@2x.png';
+    var BENEFITS_DESKTOP = 'https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/bbl-lazer.webp';
+    var BENEFITS_MOBILE  = 'https://lp.elitklinik.com.tr/wp-content/uploads/2026/04/bbl-lazer-1.webp';
 
     // Hero bg
     var heroBg = document.querySelector('.sx-hero__bg');
     if (heroBg && !heroBg.getAttribute('data-mobile-src')) {
       heroBg.setAttribute('data-mobile-src', HERO_MOBILE);
+    }
+
+    // Benefits image — force desktop src + mobile swap
+    var benefitsImg = document.querySelector('.sx-benefits__image');
+    if (benefitsImg) {
+      benefitsImg.setAttribute('src', BENEFITS_DESKTOP);
+      benefitsImg.setAttribute('data-desktop-src', BENEFITS_DESKTOP);
+      benefitsImg.setAttribute('data-mobile-src', BENEFITS_MOBILE);
     }
 
     // All imgs with data-mobile-src
