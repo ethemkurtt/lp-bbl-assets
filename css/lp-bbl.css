@@ -481,8 +481,9 @@
 }
 .sx-benefits__image {
   width: 519px;
-  height: auto;
-  align-self: stretch;
+  max-width: 519px;
+  height: 568px;
+  max-height: 568px;
   border-radius: 12px;
   object-fit: cover;
   flex-shrink: 0;
