@@ -58,18 +58,18 @@
 /* Hide the old Elit Klinik theme header coming from Elementor Theme Builder */
 .ek-header { display: none !important; }
 
-/* Kill Elementor container defaults that wrap .sx */
-.e-con-inner:has(.sx),
-.e-con:has(.sx),
-.elementor-widget:has(.sx),
-.elementor-widget-container:has(.sx) {
+/* Kill Elementor container defaults that wrap any sx-* element */
+.e-con-inner:has([class*="sx-"]),
+.e-con:has([class*="sx-"]),
+.elementor-widget:has([class*="sx-"]),
+.elementor-widget-container:has([class*="sx-"]) {
   max-width: 100% !important;
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   gap: 0 !important;
 }
-.elementor-widget:has(> .elementor-widget-container > .sx) {
+.elementor-widget:has([class*="sx-"]) {
   margin-bottom: 0 !important;
 }
 
