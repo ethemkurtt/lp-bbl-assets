@@ -458,7 +458,6 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  min-height: 132px;
 }
 .sx-benefit-card__icon {
   width: 48px;
@@ -478,8 +477,8 @@
 .sx-benefit-card__label {
   font-family: 'Sofia Pro', sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
   text-align: center;
   color: #003366;
 }
