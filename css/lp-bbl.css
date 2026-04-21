@@ -403,7 +403,92 @@
 
 
 /* =============================================================
-   6. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
+   6. BENEFITS SECTION (Faydalar — 8 cards + image)
+   ============================================================= */
+
+.sx-benefits {
+  width: 100%;
+  padding: 96px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  background: #FEFEFE;
+}
+.sx-benefits__title {
+  font-family: 'Sofia Pro', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0;
+}
+.sx-benefits__title--dark { color: #003366; }
+.sx-benefits__title--accent { color: #F98755; }
+
+.sx-benefits__grid {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+.sx-benefits__cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.sx-benefit-card {
+  box-sizing: border-box;
+  padding: 20px 16px;
+  background: #FEFEFE;
+  border: 1px solid #EFEFEF;
+  box-shadow: 0 2px 4px 2px rgba(10, 13, 18, 0.10);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 132px;
+}
+.sx-benefit-card__icon {
+  width: 48px;
+  height: 48px;
+  background: #F1F8FE;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sx-benefit-card__icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.sx-benefit-card__label {
+  font-family: 'Sofia Pro', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #2E3033;
+}
+.sx-benefits__image {
+  width: 519px;
+  height: 600px;
+  margin-top: -16px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+/* =============================================================
+   7. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
    ============================================================= */
 
 .elementor img { height: 100% !important; }
@@ -641,4 +726,44 @@
   }
   .sx-doctor__content > .sx-cta,
   .sx-doctor .sx-cta--hero { order: 4; }
+
+  /* --- BENEFITS (mobile) --- */
+  .sx-benefits {
+    padding: 48px 20px;
+    gap: 24px;
+  }
+  .sx-benefits__title {
+    font-size: 24px !important;
+    line-height: 32px !important;
+  }
+  /* Grid 2-col; image spans both + sits between card 4 and card 5 via order */
+  .sx-benefits__grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .sx-benefits__cards { display: contents; }
+  .sx-benefits__cards > .sx-benefit-card:nth-child(-n+4) { order: 1; }
+  .sx-benefits__image { order: 2; grid-column: 1 / -1; }
+  .sx-benefits__cards > .sx-benefit-card:nth-child(n+5) { order: 3; }
+
+  .sx-benefits__image {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    border-radius: 12px;
+  }
+  .sx-benefit-card {
+    min-height: 132px;
+    padding: 16px 12px;
+  }
+  .sx-benefit-card__label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .sx-benefits__cta {
+    width: 100%;
+    max-width: 382px;
+  }
 }
