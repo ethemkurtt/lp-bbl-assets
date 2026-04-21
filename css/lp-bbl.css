@@ -45,9 +45,11 @@
   font-display: swap;
 }
 
-/* Apply Sofia Pro to the whole .sx wrapper and everything inside */
+/* Apply Sofia Pro to all sx-* prefixed elements (covers widgets outside .sx wrapper too) */
 .sx,
-.sx * {
+.sx *,
+[class*="sx-"],
+[class*="sx-"] * {
   font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
