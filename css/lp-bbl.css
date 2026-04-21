@@ -256,8 +256,8 @@
   line-height: 52px;
   margin: 0;
 }
-.sx-hero__title--dark { color: #003366; }
-.sx-hero__title--light { color: #FEFEFE; }
+.sx-hero__title--dark { color: #FEFEFE; }       /* white (BBL: ilk kısım beyaz) */
+.sx-hero__title--light { color: #F98755; }      /* orange (BBL: "BBL Lazer" turuncu) */
 
 .sx-hero__subtitle {
   color: #FEFEFE;
@@ -407,19 +407,15 @@
     position: relative;
   }
 
-  /* Mobile subtitle hidden (by default, revealed via ::after) */
-  .sx-hero__subtitle { display: none !important; }
-  .sx-hero__title::after {
-    content: "Scarlet X altın iğne ile daha pürüzsüz ve genç bir cilt.";
-    display: block;
-    margin-top: 12px;
+  /* Mobile subtitle styling (if present in HTML) */
+  .sx-hero__subtitle {
+    order: 1;
     color: #FEFEFE;
-    font-family: 'Sofia Pro', sans-serif;
-    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    opacity: 0.9;
     text-align: center;
+    margin: 0;
+    opacity: 0.9;
   }
 
   .sx-cta--hero {
