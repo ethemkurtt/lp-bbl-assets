@@ -53,6 +53,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Kill Elementor container defaults that wrap .sx */
+.e-con-inner:has(.sx),
+.e-con:has(.sx),
+.elementor-widget:has(.sx),
+.elementor-widget-container:has(.sx) {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+.elementor-widget:has(> .elementor-widget-container > .sx) {
+  margin-bottom: 0 !important;
+}
+
 
 /* =============================================================
    2. HEADER (fixed, 1:1 ported from scarlet)
