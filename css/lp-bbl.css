@@ -44,3 +44,79 @@
   font-style: normal;
   font-display: swap;
 }
+
+
+/* =============================================================
+   2. HEADER (fixed, 1:1 ported from scarlet)
+   ============================================================= */
+
+.sx-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 36px 36px 12px;
+  background: rgba(0, 51, 102, 0.20);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sx-header__inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sx-header__logo {
+  width: 175.29px;
+  padding: 2.53px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.53px;
+}
+.sx-header__logo-img {
+  width: 175.29px;
+  height: 34.36px;
+  object-fit: contain;
+}
+.sx-header__logo-sub {
+  font-size: 11.56px;
+  color: #FEFEFE;
+  font-weight: 400;
+}
+.sx-header__cta {
+  height: 48px;
+  padding: 12px 20px;
+  background: rgba(254, 254, 254, 0.20);
+  border-radius: 12px;
+  color: #FEFEFE;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Sofia Pro', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.sx-header__cta:hover {
+  background: #003366;
+  color: #FEFEFE;
+}
+
+/* Header — mobile */
+@media (max-width: 1024px) {
+  .sx-header {
+    padding: 16px 20px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 51, 102, 0.85);
+  }
+  .sx-header__inner { gap: 12px; }
+  .sx-header__logo-img { width: 140px; height: auto; }
+  .sx-header__cta { display: none !important; }
+}
