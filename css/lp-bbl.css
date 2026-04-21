@@ -768,7 +768,82 @@
 
 
 /* =============================================================
-   9. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
+   9. FAQ SECTION (Sıkça Sorulan Sorular — 1:1 ported from scarlet)
+   ============================================================= */
+
+.sx-faq {
+  width: 100%;
+  padding: 96px 101px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 29px;
+}
+.sx-faq__title {
+  text-align: center;
+  color: #003366;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+.sx-faq__list {
+  width: 988px;
+  max-width: 100%;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.sx-faq__item {
+  width: 100%;
+  border-top: 1px solid #EFF3F8;
+  padding: 24px 0 8px;
+}
+.sx-faq__item:first-child { border-top: none; padding-top: 0; }
+.sx-faq__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  cursor: pointer;
+  list-style: none;
+  width: 100%;
+}
+.sx-faq__summary::-webkit-details-marker { display: none; }
+.sx-faq__question {
+  flex: 1;
+  color: #003366;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}
+.sx-faq__icon { width: 28px; height: 28px; flex-shrink: 0; }
+.sx-faq__icon--minus { display: none; }
+.sx-faq__item[open] .sx-faq__icon--plus { display: none; }
+.sx-faq__item[open] .sx-faq__icon--minus { display: block; }
+.sx-faq__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 16px;
+  color: #2E3033;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.sx-faq__item[open] .sx-faq__content {
+  animation: sxFaqFadeIn 0.3s ease-in-out;
+}
+@keyframes sxFaqFadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =============================================================
+   10. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
    ============================================================= */
 
 .elementor img { height: 100% !important; }
@@ -1249,4 +1324,12 @@
     transition: background 0.2s;
   }
   .sx-reviews__dot.active { background: #003366; }
+
+  /* --- FAQ (mobile) --- */
+  .sx-faq { padding: 48px 20px; }
+  .sx-faq__title { font-size: 28px; }
+  .sx-faq__list { width: 100%; padding: 0; }
+  .sx-faq__question { font-size: 16px; line-height: 24px; }
+  .sx-faq__content { font-size: 14px; line-height: 22px; }
+  .sx-faq__content .sx-cta { width: 100%; max-width: 382px; }
 }
