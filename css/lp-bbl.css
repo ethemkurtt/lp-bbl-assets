@@ -53,13 +53,13 @@
    2. GLOBAL RESET & BASE
    ============================================================= */
 
-.bbl *,
-.bbl *::before,
-.bbl *::after {
+.bbl *, .sx *,
+.bbl *::before, .sx *::before,
+.bbl *::after, .sx *::after {
   box-sizing: border-box;
 }
 
-.bbl {
+.bbl, .sx {
   width: 100%;
   font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -68,28 +68,29 @@
   line-height: 1.5;
 }
 
-.bbl img {
+.bbl img, .sx img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-.bbl a {
+.bbl a, .sx a {
   color: inherit;
   text-decoration: none;
 }
 
-.bbl ul, .bbl ol {
+.bbl ul, .bbl ol, .sx ul, .sx ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.bbl h1, .bbl h2, .bbl h3, .bbl h4, .bbl h5, .bbl h6, .bbl p {
+.bbl h1, .bbl h2, .bbl h3, .bbl h4, .bbl h5, .bbl h6, .bbl p,
+.sx h1, .sx h2, .sx h3, .sx h4, .sx h5, .sx h6, .sx p {
   margin: 0;
 }
 
-.bbl button {
+.bbl button, .sx button {
   font-family: inherit;
   cursor: pointer;
   border: none;
@@ -121,8 +122,76 @@
    4. LAYOUT / SECTIONS  (start building here)
    ============================================================= */
 
-/* --- HEADER ---------------------------------------------------- */
-/* (to be added) */
+/* --- HEADER (fixed, ported 1:1 from scarlet) ---------------------- */
+.sx-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 36px 36px 12px;
+  background: rgba(0, 51, 102, 0.20);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sx-header__inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sx-header__logo {
+  width: 175.29px;
+  padding: 2.53px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.53px;
+}
+.sx-header__logo-img {
+  width: 175.29px;
+  height: 34.36px;
+  object-fit: contain;
+}
+.sx-header__logo-sub {
+  font-size: 11.56px;
+  color: #FEFEFE;
+  font-weight: 400;
+}
+.sx-header__cta {
+  height: 48px;
+  padding: 12px 20px;
+  background: rgba(254, 254, 254, 0.20);
+  border-radius: 12px;
+  color: #FEFEFE;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+.sx-header__cta:hover {
+  background: #003366;
+  color: #FEFEFE;
+}
+
+/* Header — mobile */
+@media (max-width: 1024px) {
+  .sx-header {
+    padding: 16px 20px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 51, 102, 0.85);
+  }
+  .sx-header__inner { gap: 12px; }
+  .sx-header__logo-img { width: 140px; height: auto; }
+  .sx-header__cta { display: none !important; }
+}
 
 /* --- HERO ------------------------------------------------------ */
 /* (to be added) */
