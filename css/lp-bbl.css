@@ -638,7 +638,137 @@
 
 
 /* =============================================================
-   8. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
+   8. REVIEWS SECTION (Google yorumları — 1:1 ported from scarlet)
+   ============================================================= */
+
+.sx-reviews {
+  width: 100%;
+  padding: 96px 0 96px 96px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+}
+.sx-reviews__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+.sx-reviews__title {
+  text-align: center;
+  color: #2E3033;
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+.sx-reviews__rating {
+  padding: 4px 12px;
+  background: #F1F8FE;
+  border: 1px solid #E5E5E5;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.sx-reviews__rating-label {
+  color: #6E6E6E;
+  font-size: 24px;
+  font-weight: 600;
+}
+.sx-reviews__rating-box {
+  display: flex;
+  align-items: center;
+  gap: 7.87px;
+}
+.sx-reviews__rating-logo { width: 41px; height: 41px; object-fit: contain; }
+.sx-reviews__rating-score {
+  color: #FEA500;
+  font-size: 15.74px;
+  font-weight: 800;
+  line-height: 15.74px;
+}
+.sx-reviews__rating-stars { display: flex; align-items: center; }
+.sx-reviews__rating-stars img { width: 18px; height: 18px; }
+.sx-reviews__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  align-items: center;
+}
+.sx-reviews__row {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+}
+.sx-review-card {
+  background: #FEFEFE;
+  box-shadow: 2px 0 4px 2px rgba(10,13,18,0.10);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 242px;
+}
+.sx-review-card__image-wrap {
+  width: 195px;
+  height: 100%;
+  position: relative;
+  background: #003366;
+  border-top-right-radius: 96.86px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.sx-review-card__image {
+  position: absolute;
+  left: 0;
+  width: 195px;
+  height: auto;
+}
+.sx-review-card__stars {
+  position: absolute;
+  left: 40px;
+  top: 180px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.68);
+  border-radius: 641.89px;
+  display: inline-flex;
+  align-items: center;
+}
+.sx-review-card__stars img { width: 18px; height: 18px; object-fit: contain; }
+.sx-review-card__body {
+  width: 383px;
+  padding: 8px 16px 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+.sx-review-card__name {
+  color: #2E3033;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 48px;
+}
+.sx-review-card__title {
+  color: #2E3033;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.sx-review-card__text {
+  color: #2E3033;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+
+/* =============================================================
+   9. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
    ============================================================= */
 
 .elementor img { height: 100% !important; }
@@ -982,4 +1112,141 @@
     width: 100%;
     max-width: 382px;
   }
+
+  /* --- REVIEWS (mobile slider) --- */
+  .sx-reviews {
+    padding: 48px 0 0 0;
+    align-items: stretch;
+  }
+  .sx-reviews__header {
+    padding: 0 16px;
+    text-align: center;
+    align-items: center;
+  }
+  .sx-reviews__title {
+    font-family: 'Sofia Pro', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 28px !important;
+    line-height: 42px !important;
+    text-align: center !important;
+    color: #003366 !important;
+  }
+  .sx-reviews__rating {
+    margin: 0 auto;
+    width: 348px !important;
+    max-width: 100% !important;
+    height: 49px !important;
+    gap: 16px !important;
+    padding: 4px 12px !important;
+    background: #F1F8FE !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 12px !important;
+  }
+  .sx-reviews__rating-label {
+    font-family: 'Sofia Pro', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 100% !important;
+    color: #6E6E6E !important;
+  }
+
+  .sx-reviews__rows {
+    width: 100%;
+    max-height: 268px;
+    box-sizing: border-box;
+    justify-content: flex-start !important;
+    scroll-padding: 0 16px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 20px 12px !important;
+    gap: 12px !important;
+    scrollbar-width: none;
+  }
+  .sx-reviews__rows::-webkit-scrollbar { display: none; }
+
+  /* JS flattens these away, but keep rule just in case */
+  .sx-reviews__row { display: contents; }
+
+  .sx-review-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    height: auto !important;
+    min-height: 268px;
+    max-height: 268px;
+    width: calc(100vw - 32px);
+    max-width: 450px;
+    margin: 0 auto;
+    flex: 0 0 auto !important;
+    scroll-snap-align: start;
+    overflow: hidden;
+  }
+  .sx-review-card__image-wrap {
+    width: 180px !important;
+    min-width: 180px;
+    height: auto !important;
+    flex-shrink: 0;
+    align-self: stretch;
+    position: relative;
+  }
+  .sx-review-card__image {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+  }
+  .sx-review-card__stars {
+    left: 33px !important;
+    top: auto !important;
+    bottom: 16px !important;
+  }
+  .sx-review-card__body {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    padding: 2px 10px 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .sx-review-card__name {
+    font-size: 16px !important;
+    line-height: 32px !important;
+    font-weight: 700;
+  }
+  .sx-review-card__title {
+    display: none;
+  }
+  .sx-review-card__text {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    margin-top: 10px;
+  }
+
+  /* Pagination dots injected by JS */
+  .sx-reviews__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .sx-reviews__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D0D5DD;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .sx-reviews__dot.active { background: #003366; }
 }
