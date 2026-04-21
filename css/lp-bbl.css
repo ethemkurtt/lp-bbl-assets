@@ -214,8 +214,8 @@
   line-height: 52px;
   margin: 0;
 }
-.sx-hero__title--dark { color: #003366; }
-.sx-hero__title--light { color: #FEFEFE; }
+.sx-hero__title--dark { color: #FEFEFE; }
+.sx-hero__title--light { color: #F98755; }
 
 .sx-hero__subtitle {
   color: #FEFEFE;
