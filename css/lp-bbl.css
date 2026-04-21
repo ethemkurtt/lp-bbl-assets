@@ -311,7 +311,99 @@
 
 
 /* =============================================================
-   5. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
+   5. DOCTOR SECTION (1:1 ported from scarlet)
+   ============================================================= */
+
+.sx-doctor {
+  width: 100%;
+  min-height: 672px;
+  padding: 96px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  overflow: hidden;
+}
+.sx-doctor__card {
+  width: 384px;
+  height: 480px;
+  position: relative;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+.sx-doctor__card-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 96px 24px 24px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.80) 100%);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sx-doctor__card-info-inner {
+  width: 100%;
+  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid #EFF3F8;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sx-doctor__card-name {
+  color: #FEFEFE;
+  font-size: 24px;
+  font-weight: 600;
+}
+.sx-doctor__card-role {
+  color: #FEFEFE;
+  font-size: 16px;
+  font-weight: 600;
+}
+.sx-doctor__content {
+  flex: 1;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.sx-doctor__title {
+  text-align: center;
+  color: #003366;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+}
+.sx-doctor__subtitle {
+  text-align: center;
+  color: #2E3033;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  margin: 0;
+}
+.sx-doctor__desc {
+  text-align: center;
+  color: #6E6E6E;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  padding: 0 5%;
+  margin: 0;
+}
+
+
+/* =============================================================
+   6. ELEMENTOR IMG FIX (used by hero bg + mfeatures icons)
    ============================================================= */
 
 .elementor img { height: 100% !important; }
@@ -506,4 +598,47 @@
     justify-content: center;
   }
   .sx-mfeatures__icon img { width: 14px; height: 14px; }
+
+  /* --- DOCTOR (mobile) --- */
+  .sx-doctor {
+    flex-direction: column;
+    padding: 48px 20px;
+    gap: 24px;
+    align-items: center;
+    min-height: 0;
+  }
+  /* Flatten content so title can move above the card via flex order */
+  .sx-doctor__content {
+    display: contents;
+  }
+  .sx-doctor__title {
+    order: 0;
+    width: 100%;
+    max-width: 382px;
+    min-height: 84px;
+    font-size: 28px;
+    line-height: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .sx-doctor__card {
+    order: 1;
+    width: 100% !important;
+    max-width: 350px;
+  }
+  .sx-doctor__subtitle {
+    order: 2;
+    text-align: left !important;
+  }
+  .sx-doctor__desc {
+    order: 3;
+    text-align: left !important;
+    padding: 0 2% !important;
+  }
+  .sx-doctor__content > .sx-cta,
+  .sx-doctor .sx-cta--hero { order: 4; }
 }
