@@ -50,6 +50,32 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 
   /* -----------------------------------------------------------
+     Process video — click to play YouTube short inline
+     ----------------------------------------------------------- */
+  (function sxProcessVideo() {
+    var VIDEO_ID = '0QiXZq4EW1M';
+    var wrap = document.querySelector('.sx-process__video');
+    if (!wrap) return;
+    wrap.style.cursor = 'pointer';
+    wrap.addEventListener('click', function () {
+      if (wrap.querySelector('iframe')) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + VIDEO_ID + '?autoplay=1&rel=0&playsinline=1';
+      iframe.setAttribute('title', 'BBL Lazer Süreci');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = '0';
+      iframe.style.display = 'block';
+      // Clear thumbnail + play overlay, insert iframe
+      wrap.innerHTML = '';
+      wrap.appendChild(iframe);
+    });
+  })();
+
+  /* -----------------------------------------------------------
      Mobile reviews slider with pagination dots
      ----------------------------------------------------------- */
   (function sxReviewsSlider() {
